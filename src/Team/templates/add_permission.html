@@ -1,0 +1,44 @@
+{% extends "includes/base_admin.html" %}
+<!--  -->
+{% load staticfiles %}
+<!-- <script src="{% static 'js/fetch_data.js'}"></script> -->
+
+<!--  -->
+{% block content %}
+<h3 class="container">
+    <h3>Add permissions</h3>
+    <form id="form-add-roles">
+        <div class="md-form">
+            <label for="permission">Name Permission</label>
+            <input type="text" id="name_permission" placeholder="add permission" class="form-control">
+        </div>
+        <div class="md-form">
+            <button onclick='addPermission(event)' class="btn btn-block btn-primary">Add New Permission</button>
+        </div>
+    </form>
+</div>
+<!--  -->
+{% endblock content %}
+<!--  -->
+{% block script %}
+
+<script>
+  const csrf_token = "{{ csrf_token }}";
+  const addPermission = (e) => {
+      e.preventDefault();
+      const name_permission = document.getElementById("name_permission").value;
+      if(name_permission) {
+        const data = {
+            name_permission: name_permission
+        }
+        fetchDataPost("Team/add_permission/" , csrf_token , data).then(dataCB => {
+            const { data , message } = dataCB
+            alert(message)
+        }).catch(errCb => console.log({errCb}))
+      } else { 
+          alert("name permission not found")
+      }
+  }
+</script>
+
+{% endblock script %}

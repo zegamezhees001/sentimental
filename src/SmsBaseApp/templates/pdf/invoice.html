@@ -1,0 +1,178 @@
+{% load static %}
+<!-- 
+This is intended to be rendered to a PDF using pisa, not in a browser.
+Therefore, the HTML and CSS here can look a bit fishy. Please refer to 
+http://www.htmltopdf.org/doc/pisa-en.html for reference 
+-->
+<html>
+<style>
+    /*Custom fonts*/
+/*@font-face {
+    font-family: Weird, "Weird Font";
+    src: url(test/weird.ttf)
+}
+@font-face {
+    font-family: Akkurat;
+    src: url(test/Akkurat.ttf)
+}
+@font-face {
+    font-family: Akk;
+    src: url(test/akk.otf)
+}*/
+/* Page layout */
+@page  {
+    size: a4 landscape;
+    @frame {
+        -pdf-frame-content: block_one;
+        -pdf-frame-border: 1;
+        left: 0.5cm;
+        width: 14cm;
+        top: 0.5cm;
+        height: 9.7cm;
+    }
+    @frame {
+        -pdf-frame-content: block_two;
+        -pdf-frame-border: 1;
+        right: 0.5cm;
+        width: 14cm;
+        top: 0.5cm;
+        height: 9.7cm;
+    }
+
+    @frame {
+        -pdf-frame-content: block_three;
+        -pdf-frame-border: 1;
+        left: 0.5cm;
+        width: 14cm;
+        bottom: 0.5cm;
+        height: 9.7cm;
+    }
+    @frame {
+        -pdf-frame-content: block_four;
+        -pdf-frame-border: 1;
+        right: 0.5cm;
+        width: 14cm;
+        bottom: 0.5cm;
+        height: 9.7cm;
+    }
+}
+h1, h2, h3, h4 { /* Don't add an outline to the document */
+    -pdf-outline: false;
+}
+.border {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    
+
+
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+}
+.top_image {
+    zoom: 80%;
+}
+
+@page fix {
+    size: a4 landscape;
+    @frame {
+        -pdf-frame-content: block_one;
+        -pdf-frame-border: 1;
+        left: 0.5cm;
+        width: 14cm;
+        top: 0.5cm;
+        height: 9.7cm;
+    }
+}
+</style>
+
+<body >
+
+   
+    <div id="block_one">
+        <br>
+    <div style="text-align:center;">
+        <h1>FLORA OF THAILAND</h1>
+        <h2>NATIONAL BIOBANK</h2>
+        <h3>Herbarium no.</h3>
+    </div>
+    <div style="margin-left: 10px;">
+    <h3>Scientific Name :</h3>
+    <h3>Family :</h3>
+    <h3>Vernacular :</h3>
+    <h3>Locality :</h3>
+    <h3>Notes :</h3>
+    <h3>Date :</h3>
+    <h3>Altitude:</h3>
+    <h3>Coordinates :</h3>
+    </div>
+
+    </div>
+    </div>
+    <div id="block_two">
+        <br>
+    <div style="text-align:center;">
+        <h1>FLORA OF THAILAND</h1>
+        <h2>NATIONAL BIOBANK</h2>
+        <h3>Herbarium no.</h3>
+    </div>
+    <div style="margin-left: 10px;">
+    <h3>Scientific Name :</h3>
+    <h3>Family :</h3>
+    <h3>Vernacular :</h3>
+    <h3>Locality :</h3>
+    <h3>Notes :</h3>
+    <h3>Date :</h3>
+    <h3>Altitude:</h3>
+    <h3>Coordinates :</h3>
+    </div>
+
+    </div>
+    </div>
+    <div id="block_three" >
+    <br>
+    <div style="text-align:center;">
+        <h1>FLORA OF THAILAND</h1>
+        <h2>NATIONAL BIOBANK</h2>
+        <h3>Herbarium no.</h3>
+    </div>
+    <div style="margin-left: 10px;">
+    <h3>Scientific Name :</h3>
+    <h3>Family :</h3>
+    <h3>Vernacular :</h3>
+    <h3>Locality :</h3>
+    <h3>Notes :</h3>
+    <h3>Date :</h3>
+    <h3>Altitude:</h3>
+    <h3>Coordinates :</h3>
+    </div>
+
+    </div>
+    <div id="block_four">
+        <br>
+    <div style="text-align:center;">
+        <h1>FLORA OF THAILAND</h1>
+        <h2>NATIONAL BIOBANK</h2>
+        <h3>Herbarium no.</h3>
+    </div>
+    <div style="margin-left: 10px;">
+    <h3>Scientific Name :</h3>
+    <h3>Family :</h3>
+    <h3>Vernacular :</h3>
+    <h3>Locality :</h3>
+    <h3>Notes :</h3>
+    <h3>Date :</h3>
+    <h3>Altitude:</h3>
+    <h3>Coordinates :</h3>
+    </div>
+
+    </div>
+    </div>
+
+	
+</body>
+
+</html>

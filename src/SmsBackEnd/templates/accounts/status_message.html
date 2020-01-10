@@ -1,0 +1,30 @@
+{% extends "includes/base_admin.html" %}
+{% load staticfiles %}
+{% load static %}
+{% block document_container %}
+<meta http-equiv="refresh" content="{{ displaytime }};url={{ goto }}">
+<div class="container" style="margin-top:25%">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="text-center border border-light p-5">
+
+                
+
+
+                <div class="ui {{ type }} message">
+                    {# <i class="close icon"></i>#}
+                    <div class="header">
+                        {{ message_header }}
+                    </div>
+                    <p>{{ message_detail }}</p>
+                </div>
+                     <div class="load-container load6"><div class="loader">Loading...</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-top:20%">
+
+</div>
+
+{% endblock document_container %}

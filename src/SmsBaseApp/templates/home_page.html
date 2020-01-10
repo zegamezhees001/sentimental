@@ -1,0 +1,168 @@
+{% extends "includes/base_user.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-2 offset-2">
+                        <strong>
+                            <h3>
+                                Equipment
+                            </h3>
+                        </strong>
+                    </div>
+                    <div class="col-sm-4">
+                        <input list="browsers" class="col-sm-12">
+                        <datalist id="browsers">
+                            <option value="Internet Explorer">
+                            <option value="Firefox">
+                            <option value="Chrome">
+                            <option value="Opera">
+                            <option value="Safari">
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- /# column -->
+</div>
+</div>
+<!--  /Content -->
+<br>
+{% endblock content %}
+
+
+
+{% block script %}
+<script>
+    const seleteEventFunc =  (start, end, allDay) =>  {
+        const title = prompt("Enter Event Title");
+
+        if (title) {
+            const start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+            const end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+            $.ajax({
+                url: '/SmsBackEnd/insert_events/',
+                type: "POST",
+                data: {
+                    title: title,
+                    start: start,
+                    end: end,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function () {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Added Successfully");
+                }
+            })
+        }
+    }
+
+    const eventResizeFunc =  (event) => {
+        const start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+        const end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+        const title = event.title;
+        const id = event.id;
+        $.ajax({
+            url: '/SmsBackEnd/update_events/',
+            type: "POST",
+            data: {
+                title: title,
+                start: start,
+                end: end,
+                id: id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function () {
+                calendar.fullCalendar('refetchEvents');
+                alert('Event Update');
+            }
+        })
+    }
+
+    const eventDropFunc =  (event)  => {
+        const start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+        const end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+        const title = event.title;
+        const id = event.id;
+        $.ajax({
+            url: '/SmsBackEnd/update_events/',
+            type: "POST",
+            data: {
+                title: title,
+                start: start,
+                end: end,
+                id: id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function () {
+                calendar.fullCalendar('refetchEvents');
+                alert("Event Updated");
+            }
+        });
+    }
+    const eventClickFunc =  (event) => {
+        if (confirm("Are you sure you want to remove it?")) {
+            var id = event.id;
+            $.ajax({
+                url: '/SmsBackEnd/delete_events/',
+                type: "POST",
+                data: {
+                    id: id,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function () {
+                    calendar.fullCalendar('refetchEvents');
+                    alert("Event Removed");
+                }
+            })
+        }
+    }
+
+    const handleLoadDataEvents =  (events)  => { 
+        console.log({events});
+        const calendar = $('#calendar').fullCalendar({
+                editable: true,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                events:  events,
+                selectable: true,
+                selectHelper: true,
+                editable: true,
+                select: seleteEventFunc,
+                eventResize: eventResizeFunc,
+                eventDrop: eventDropFunc,
+                eventClick: eventClickFunc,
+            });
+    }
+    $(document).ready(function () {
+        fetch('/SmsBackEnd/load_events/').then(data => data.json()).then(handleLoadDataEvents)
+    });
+
+</script>
+{% endblock script %}

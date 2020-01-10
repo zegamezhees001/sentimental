@@ -1,0 +1,21 @@
+{% extends "includes/base_admin.html" %}
+<!--  -->
+{% load staticfiles %}
+
+<!--  -->
+{% block content %}
+
+<div class="container">
+  <div id="show_team_items" class="row"></div>
+</div>
+
+<!--  -->
+{% endblock content %}
+<!--  -->
+{% block script %}
+<script>
+  const csrf_token = "{{ csrf_token }}";
+</script>
+<script src="{% static 'js/show-team.js' %}"></script>
+
+{% endblock script %}

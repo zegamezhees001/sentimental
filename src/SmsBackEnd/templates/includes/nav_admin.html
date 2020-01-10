@@ -1,0 +1,139 @@
+<!-- Left Panel -->
+<aside id="left-panel" class="left-panel">
+  <nav class="navbar navbar-expand-sm navbar-default">
+    <div id="main-menu" class="main-menu collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Check if user group -->
+        <li class="active">
+          <a href="{% url 'SmsBackEnd:ibiobank_main_admin'%}"
+            ><i class="menu-icon fa fa-laptop"></i>Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'Team:add_permission_page' %}">
+            <i class="menu-icon fa fa-users"></i>Permission</a
+          >
+        </li>
+        <li>
+          <a href="{% url 'Team:add_attachment_page' %}">
+            <i class="menu-icon fa fa-users"></i>Attachment</a
+          >
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <!-- <a href="/Team/create_team">Teams</a> -->
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="menu-icon fa fa-users"></i>Team</a
+          >
+
+          <ul class="sub-menu children dropdown-menu">
+            <li>
+              <i class="menu-icon fas fa-user-plus"></i
+              ><a href="{% url 'Team:create_team' %}"> Create Team</a>
+            </li>
+            <li>
+              <i class="menu-icon fas fa-user-plus"></i
+              ><a href="{% url 'Team:show_team_page' %}"> Show Teams</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-item-has-children dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="menu-icon fa fa-users"></i>Account</a
+          >
+          <ul class="sub-menu children dropdown-menu">
+            <li>
+              <i class="menu-icon fas fa-user-plus"></i
+              ><a href="{% url 'SmsBackEnd:create_accounts' %}">
+                Create account</a
+              >
+            </li>
+            <li>
+              <i class="fas fa-users-cog"></i
+              ><a href="{% url 'SmsBackEnd:manage_accounts' %}">
+                Manage account</a
+              >
+            </li>
+            <li>
+              <i class="fas fa-user-circle"></i
+              ><a href="{% url 'SmsBackEnd:active_accounts' %}">
+                Active account</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="menu-icon fas fa-database"></i>Backup</a
+          >
+          <ul class="sub-menu children dropdown-menu">
+            <li>
+              <i class="fas fa-history"></i
+              ><a href="{% url 'SmsBackEnd:backup' %}"> Backup history</a>
+            </li>
+            <li>
+              <i class="menu-icon fa fa-save"></i
+              ><a href="{% url 'SmsBackEnd:backup_database' %}">
+                Backup database</a
+              >
+            </li>
+            <li>
+              <i class="menu-icon fa fa-list-alt"></i
+              ><a href="{% url 'SmsBackEnd:backup_web_content' %}">
+                Backup web content</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="menu-item-has-children dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="menu-icon fas fa-sticky-note"></i>Logs</a
+          >
+          <ul class="sub-menu children dropdown-menu">
+            <li>
+              <i class="menu-icon fas fa-align-right"></i
+              ><a href="{% url 'SmsBackEnd:logs' %}"> Database logs</a>
+            </li>
+            <li>
+              <i class="menu-icon fas fa-align-right"></i
+              ><a href="#"> Web logs</a>
+            </li>
+            <li>
+              <i class="menu-icon fas fa-align-right"></i
+              ><a href="#"> Users logs</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- End check menu for Tissue_lab -->
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+</aside>
+
+<!-- end Panel -->

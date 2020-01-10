@@ -1,0 +1,77 @@
+{% extends "includes/base_user.html" %}
+{% load i18n %}
+{% load static %}
+{% block document_container %}
+<div class="container">
+<div class="row justify-content-md-center">
+    <div class="col-md-4 col-md-auto">
+            <img src="{% static 'img/content/logo.png' %}">
+    </div>
+</div>
+<div class="row">
+   <div class="col-md-6 offset-md-3">
+
+
+<!-- Default form register -->
+<form class="text-center border border-light p-5" method="post">
+     {% csrf_token %}
+                        {% for field in form %}
+                        <p>
+                            {% if forloop.counter == 1 %}
+                        <p class="text-left">Select a username and password admin</p>
+                        <hr>
+                        {% endif%}
+                        {% if forloop.counter == 5 %}
+                        <p class="text-left">Contact information</p>
+                        <hr>
+                        {% endif%}
+                        {% if forloop.counter == 6 %}
+
+                        <p class="text-left">In case your forget your password </p>
+                        <hr>
+                        {% endif%}
+                        {{ field }}
+                        {% if field.help_text %}
+                        <small style="color: grey">{{ field.help_text }}</small>
+                        {% endif %}
+                        {% for error in field.errors %}
+                        <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                        </p>
+                        {% endfor %}
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" name="registerbtn" type="submit">Sign in</button>
+
+    <!-- Social register -->
+    <p>or sign up with:</p>
+
+    <a  class="light-blue-text mx-2">
+        <i class="fa fa-facebook"></i>
+    </a>
+    <a class="light-blue-text mx-2">
+        <i class="fa fa-twitter"></i>
+    </a>
+    <a class="light-blue-text mx-2">
+        <i class="fa fa-linkedin"></i>
+    </a>
+    <a  class="light-blue-text mx-2">
+        <i class="fa fa-github"></i>
+    </a>
+
+    <hr>
+
+    <!-- Terms of service -->
+    <p>By clicking
+        <em>Sign up</em> you agree to our
+        <a href="" target="_blank">terms of service</a> and
+        <a href="" target="_blank">terms of service</a>. </p>
+
+</form>
+<!-- Default form register -->
+
+    </div>
+</div>
+</div>
+
+{% endblock document_container %}

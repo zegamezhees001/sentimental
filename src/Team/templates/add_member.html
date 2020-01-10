@@ -1,0 +1,25 @@
+{% extends "includes/base_admin.html" %}
+<!--  -->
+{% load staticfiles %}
+
+<!--  -->
+{% block content %}
+<h3 class="container">
+    {{message}}
+  <h3 >This team is {{ team.name_team }}</h3>
+    <h5> created at {{ team.create_date }}</h5> </h5>
+
+    <form id="form-add-roles">
+      
+    </form>
+</div>
+<!--  -->
+{% endblock content %}
+<!--  -->
+{% block script %}
+<script>
+  const csrf_token = "{{ csrf_token }}";
+</script>
+<script src="{% static 'js/add-member.js' %}"></script>
+
+{% endblock script %}

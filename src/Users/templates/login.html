@@ -1,0 +1,70 @@
+{% extends "includes/base_user.html" %}
+<!--  -->
+{% load i18n %} {% load static %}
+<!--  -->
+{% block content %}
+<br /><br />
+<!-- <div class="container"> -->
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <!-- Default form login -->
+    <form
+      class="text-center border border-light p-5"
+      style="background: white;"
+      method="post"
+    >
+      {% csrf_token %}
+      <p class="h4 mb-4">{% trans "Sign in" %}</p>
+
+      {% if request.GET.next %}
+      <input
+        type="hidden"
+        name="next"
+        class="form-control"
+        value="{{ request.GET.next }}"
+      />
+      {% endif %} {{form.username}} {{ form.password }} {% if
+      form.non_field_errors %} {% for error in form.non_field_errors %}
+      <div class="ui red message">{{ error }}</div>
+      {% endfor %} {% endif %}
+
+      <!--<div class="d-flex justify-content-around">-->
+      <!--<div>-->
+      <!--&lt;!&ndash; Remember me &ndash;&gt;-->
+      <!--<div class="custom-control custom-checkbox">-->
+      <!--<input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">-->
+      <!--<label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div>-->
+      <!--&lt;!&ndash; Forgot password &ndash;&gt;-->
+      <!--</a> /<a href="{% url 'Users:password_reset_request'%}">-->
+      <!--{% trans "Forget password" %}-->
+      <!--</a>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!-- Sign in button -->
+      <button name="loginBtn" class="btn btn-blue btn-block my-4" type="submit">
+        Sign in
+      </button>
+
+      <!-- Register -->
+      <p>
+        Not a member?
+        <a href="{% url 'Users:signup'%}">Register</a>
+      </p>
+
+      <!-- Register -->
+      <p>
+        <a href="{% url 'Users:password_reset_request' %}">
+          <div class="">Forget Password</div>
+        </a>
+      </p>
+    </form>
+    <!-- Default form login -->
+  </div>
+</div>
+<!-- </div> -->
+<br /><br />
+{% endblock content %}

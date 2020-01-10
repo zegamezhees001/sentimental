@@ -1,0 +1,33 @@
+{% extends "includes/base_admin.html" %}
+<!--  -->
+{% load staticfiles %}
+
+<!--  -->
+{% block content %}
+
+<form method="post">
+  <div class="md-form">
+    <input
+      type="text"
+      placeholder="name team"
+      id="name_team"
+      class="form-control"
+    />
+  </div>
+  <div class="md-form">
+    <button onclick="onCreateTeam(event)" class="btn btn-block btn-primary">
+      Create Team
+    </button>
+  </div>
+</form>
+<!--  -->
+{% endblock content %}
+<!--  -->
+{% block script %}
+
+<script>
+  const csrf_token = "{{ csrf_token }}";
+</script>
+<script src="{% static 'js/create-team.js' %}"></script>
+
+{% endblock script %}

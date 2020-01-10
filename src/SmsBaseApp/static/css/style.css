@@ -1,0 +1,75 @@
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+  height: 100%;
+}
+
+/* Half Page Carousel itself*/
+.carousel {
+  height: 50%;
+}
+.carousel .carousel-inner {
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item,
+.carousel .carousel-inner .active {
+  height: 100%;
+}
+
+/* Adjustment for mobile devices*/
+@media (max-width: 776px) {
+  .carousel {
+    height: 100%;
+  }
+}
+.div_team {
+  padding: 20px;
+  background: white;
+}
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.top-nav-collapse {
+  background-color: #929fba;
+}
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #929fba;
+  }
+}
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #929fba;
+}
+
+.big-box-list {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  max-height: 400px;
+  overflow: auto;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+.box-list {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.box-list > div:first-child {
+  margin-left: 20px;
+  border-bottom: 1px solid;
+  transition: all 0.4s linear;
+}
+.box-list > div:first-child:hover {
+  border-bottom: 5px solid;
+}
+.box-list > div:last-child {
+  text-align: center;
+}

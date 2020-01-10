@@ -1,0 +1,49 @@
+{% extends "includes/base_admin.html" %}
+<!--  -->
+{% load staticfiles %}
+
+<!--  -->
+{% block content %}
+<h3 class="container">
+
+    <h3> Show list of Attachment</h3>
+    <div id="big-box-list" class="big-box-list">
+      
+    </div>
+    <form id="form-add-roles">
+        <div class="md-form mt-3">
+            <label for="Name Attachment">Name Attachment</label>
+            <input onkeyup="inputNameA(event)" type="text" placeholder="Name attachment" id="name_attachment" class="form-control" />
+            <small id="message_name">You need to input name attachment</small>
+        </div>
+        <div class="md-form mt-3">
+            <label for="Add Permission">Add Permission</label>
+            <select id="id_permissions" class="form-control" >
+                {% if datas.permissions_data|length > 0 %}
+                    {% for permission in datas.permissions_data %}
+                        <option   value="{{ permission.id_permission}}">{{ permission.name_permission }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option   value="not"> you need to add permission. </option>
+
+                {% endif %}
+            </select>
+        </div>
+        <div class="md-form mt-3">
+            <button  onclick="createAttachment(event)" id="btn_add" class="btn btn-block btn-primary">
+                Add Attachment
+            </button>
+        </div>
+    </form>
+</div>
+<!--  -->
+{% endblock content %}
+<!--  -->
+{% block script %}
+
+<script>
+  const csrf_token = "{{ csrf_token }}";
+ 
+</script>
+<script src="{% static 'js/attachment.js' %}"></script>
+{% endblock script %}

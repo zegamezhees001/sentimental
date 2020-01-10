@@ -1,0 +1,61 @@
+{% extends "includes/base_user.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<br><br>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+
+
+        <!-- Default form register -->
+        <form class="text-center border border-light p-5" method="post" style="background: white;">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <p>
+                {% if forloop.counter == 1 %}
+
+                <p class="text-left">ชื่อนามสกุล / รหัสผ่าน</p>
+                <hr>
+                {% endif%}
+                {% if forloop.counter == 6 %}
+
+                <p class="text-left">รหัสพนักงาน</p>
+                <hr>
+                {% endif%}
+                {% if forloop.counter == 7 %}
+
+                <p class="text-left">ข้อมูลติดต่อ</p>
+                <hr>
+                {% endif%}
+                {% if forloop.counter == 9 %}
+
+                <p class="text-left">ประเภทผู้ใช้งาน</p>
+                <hr>
+                {% endif%}
+                {% if forloop.counter == 10 %}
+
+                <p class="text-left">กรณีลืมรหัสผ่าน</p>
+                <hr>
+                {% endif%}
+
+                {{ field }}
+                {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+            {% endfor %}
+            <br>
+            <!-- Sign up button -->
+            <div class="col-sm-6 offset-2">
+                <button class="btn btn-blue my-4 btn-block " name="registerbtn" type="submit">ยืนยันการสมัคร</button>
+            </div>
+        </form>
+        <!-- Default form register -->
+    </div>
+</div>
+<br><br>
+{% endblock content %}

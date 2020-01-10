@@ -1,0 +1,460 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-08 03:22+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: BaseSettings/settings.py:148
+msgid "English"
+msgstr ""
+
+#: BaseSettings/settings.py:149
+msgid "Thailand"
+msgstr ""
+
+#: Document/templates/document_page.html:7 SmsBaseApp/templates/base.html:59
+#: SmsBaseApp/templates/base.html:137
+msgid "Document"
+msgstr "เอกสาร"
+
+#: SmsBaseApp/templates/about_page.html:4
+msgid "About Us"
+msgstr "เกี่ยวกับเรา"
+
+#: SmsBaseApp/templates/base.html:30
+msgid "Bio framework"
+msgstr ""
+
+#: SmsBaseApp/templates/base.html:31 SmsBaseApp/templates/base.html:106
+msgid "Dashboard"
+msgstr "แผงควบคุม"
+
+#: SmsBaseApp/templates/base.html:32 SmsBaseApp/templates/base.html:109
+msgid "Project"
+msgstr "โครงงาน"
+
+#: SmsBaseApp/templates/base.html:36 SmsBaseApp/templates/base.html:114
+#: Project/templates/new_project_page.html:7
+msgid "New Project"
+msgstr "สร้างโครงงาน"
+
+#: SmsBaseApp/templates/base.html:39 SmsBaseApp/templates/base.html:117
+#: Project/templates/all_project_page.html:7
+msgid "All Projects"
+msgstr "โครงงานทั้งหมด"
+
+#: SmsBaseApp/templates/base.html:42 SmsBaseApp/templates/base.html:120
+#: Project/templates/share_project_page.html:8
+msgid "Share Project"
+msgstr "แชร์โครงงาน"
+
+#: SmsBaseApp/templates/base.html:46
+msgid "Manage projects"
+msgstr "จัดการโครงงาน"
+
+#: SmsBaseApp/templates/base.html:49 SmsBaseApp/templates/base.html:127
+msgid "Seperated link"
+msgstr ""
+
+#: SmsBaseApp/templates/base.html:52 SmsBaseApp/templates/base.html:130
+msgid "One more seperated link"
+msgstr ""
+
+#: SmsBaseApp/templates/base.html:56 SmsBaseApp/templates/base.html:134
+msgid "Sample"
+msgstr "ไฟล์"
+
+#: SmsBaseApp/templates/base.html:57 SmsBaseApp/templates/base.html:135
+msgid "Contact"
+msgstr "ติดต่อ"
+
+#: SmsBaseApp/templates/base.html:58 SmsBaseApp/templates/base.html:136
+msgid "About"
+msgstr "เกี่ยวกับ"
+
+#: SmsBaseApp/templates/base.html:71 SmsBaseApp/templates/base.html:78
+#: SmsBaseApp/templates/base.html:147 SmsBaseApp/templates/base.html:154
+msgid "Change password"
+msgstr "เปลี่ยนรหัสผ่าน"
+
+#: SmsBaseApp/templates/base.html:75 SmsBaseApp/templates/base.html:151
+msgid "Manage user"
+msgstr "จัดการผู้ใช้"
+
+#: SmsBaseApp/templates/base.html:84 SmsBaseApp/templates/base.html:161
+msgid "Logout"
+msgstr "ออกจากระบบ"
+
+#: SmsBaseApp/templates/base.html:90 SmsBaseApp/templates/base.html:167
+#: Users/templates/login.html:3 Users/templates/login.html:30
+msgid "Login"
+msgstr "ลงชื่อเข้าใช้"
+
+#: SmsBaseApp/templates/base.html:124
+msgid "MANAGE PROJECTS"
+msgstr ""
+
+#: SmsBaseApp/templates/base.html:266
+msgid "Social"
+msgstr "สังคมออนไลน์"
+
+#: SmsBaseApp/templates/base.html:274
+msgid "Locations"
+msgstr "ที่ตั้ง"
+
+#: SmsBaseApp/templates/base.html:276
+msgid ""
+"National Center for Genetic Engineering and Biotechnology (BIOTEC) 113 "
+"Thailand Science Park Phahonyothin Road Khlong Nueng, Khlong Luang Pathum "
+"Thani 12120"
+msgstr ""
+"ศูนย์พันธุวิศวกรรมและเทคโนโลยีชีวภาพแห่งชาติ 113 อุทยานวิทยาศาสตร์ประเทศไทย ถนนพหลโยธิน "
+"ตำบลคลองหนึ่ง อำเภอคลองหลวง จังหวัดปทุมธานี 12120"
+
+#: SmsBaseApp/templates/base.html:282
+msgid ""
+"SmsBaseApp framework is the section in the form of a website used for DNA data "
+"analysis."
+msgstr "SmsBaseApp framework เป็นรูปแบบเว็บไซต์ที่ใช้ในการวิเคราะห์ข้อมูล DNA"
+
+#: SmsBaseApp/templates/base.html:289
+msgid "Site Map"
+msgstr "แผนผังเว็บไซต์"
+
+#: SmsBaseApp/templates/base.html:290 SmsBaseApp/templates/contract_page.html:10
+msgid "Contact Us"
+msgstr "ติดต่อเรา"
+
+#: SmsBaseApp/templates/base.html:291
+msgid "Terms and Conditions"
+msgstr "เงื่อนไขและข้อกำหนด"
+
+#: SmsBaseApp/templates/base.html:292
+msgid "Privacy Policy"
+msgstr "นโยบายความเป็นส่วนตัว"
+
+#: SmsBaseApp/templates/contract_page.html:18 Users/forms.py:14
+#: Users/forms.py:73 Users/templates/password_reset_request.html:14
+msgid "Email"
+msgstr "อีเมล"
+
+#: SmsBaseApp/templates/contract_page.html:27
+msgid "Call us on"
+msgstr "โทรหาเรา"
+
+#: SmsBaseApp/templates/contract_page.html:30
+msgid "Mon-Sat 9am-5pm (GMT)"
+msgstr "จันทร์ - เสาร์ 9.00-17.00 น."
+
+#: SmsBaseApp/templates/contract_page.html:36
+msgid "Find us at"
+msgstr "หาเราได้ที่"
+
+#: SmsBaseApp/templates/contract_page.html:39
+msgid "113 Khlong Luang PathumThani,Thailand"
+msgstr "113 อ.คลองหลวง จ.ปทุมธานี"
+
+#: Users/forms.py:11 Users/forms.py:46
+#: Users/templates/login.html:12
+msgid "Username"
+msgstr "ชื่อผู้ใช้"
+
+#: Users/forms.py:12
+msgid "FirstName"
+msgstr "ชื่อจริง"
+
+#: Users/forms.py:13
+msgid "Lastname"
+msgstr "นามสกุล"
+
+#: Users/forms.py:15 Users/forms.py:16 Users/forms.py:48
+#: Users/forms.py:85 Users/templates/login.html:20
+
+#: Users/templates/reset_change_password.html:14
+msgid "Password"
+msgstr "รหัสผ่าน"
+
+#: Users/forms.py:17 Users/forms.py:18 Users/forms.py:87
+#: Users/forms.py:105 Users/templates/change_password.html:28
+#: Users/templates/reset_change_password.html:21
+msgid "Confirm Password"
+msgstr "ยืนยันรหัสผ่าน"
+
+#: Users/forms.py:19
+msgid "Profile"
+msgstr "ประวัติ"
+
+#: Users/forms.py:30
+msgid "This email is already used"
+msgstr "อีเมลนี้ถูกใช้แล้ว"
+
+#: Users/forms.py:59 Users/views.py:51 Users/views.py:94
+msgid "Please confirm your email."
+msgstr "กรุณายืนยันการลงทะเบียนที่อีเมลของท่านก่อนเริ่มใช้งาน"
+
+#: Users/forms.py:61
+msgid "Invalid username or password."
+msgstr "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง กรุณาลองใหม่"
+
+#: Users/forms.py:79
+msgid "Invalid email"
+msgstr "อีเมลไม่ถูกต้อง"
+
+#: Users/forms.py:94 Users/forms.py:115
+msgid "The password didn't match"
+msgstr "รหัสผ่านใหม่ไม่ตรงกัน"
+
+#: Users/forms.py:101 Users/templates/change_password.html:14
+msgid "Old Password"
+msgstr "รหัสผ่านเดิม"
+
+#: Users/forms.py:103 Users/templates/change_password.html:21
+msgid "New Password"
+msgstr "รหัสผ่านใหม่"
+
+#: Users/templates/acc_active_email.html:3
+#: Users/templates/acc_reset_password_email.html:3
+msgid "Hello"
+msgstr "สวัสดี"
+
+#: Users/templates/acc_active_email.html:4
+msgid "Click link to comfirm"
+msgstr "คลิกที่ลิ้งค์เพื่อยืนยัน"
+
+#: Users/templates/acc_reset_password_email.html:4
+msgid "Click link to confirm a password"
+msgstr "คลิกที่ลิ้งค์เพื่อยืนยันการเปลี่ยนรหัส"
+
+#: Users/templates/acc_reset_password_email.html:8
+msgid "Note: The 30 minute expired then make a new request."
+msgstr "หมายเหตุ : คำร้องมีอายุ 30 นาที หลังจากน้ันจะต้องทำการร้องขอใหม่"
+
+#: Users/templates/change_password.html:6
+#: Users/templates/reset_change_password.html:6
+msgid "Set new password"
+msgstr "ตั้งค่ารหัสผ่านใหม่"
+
+#: Users/templates/change_password.html:39
+#: Users/templates/password_reset_request.html:23
+#: Users/templates/reset_change_password.html:32
+#: Users/templates/signup.html:22
+msgid "Submit"
+msgstr "ส่งแบบฟอร์ม"
+
+#: Users/templates/change_password.html:40
+#: Users/templates/password_reset_request.html:24
+#: Users/templates/reset_change_password.html:33
+#: Users/templates/signup.html:23
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: Users/templates/login.html:34 Users/templates/signup.html:6
+msgid "Sign up"
+msgstr "ลงทะเบียน"
+
+#: Users/templates/login.html:40
+msgid "Forget password"
+msgstr "ลืมรหัสผ่าน"
+
+msgid "password"
+msgstr "รหัสผ่าน"
+
+#: Users/templates/password_reset_request.html:6
+msgid "Forget Password"
+msgstr "ลืมรหัสผ่าน"
+
+#: Users/templates/status_message.html:9
+msgid "System message"
+msgstr "ข้อความระบบ"
+
+#: Users/views.py:40
+msgid "Confirm registration from SmsBaseApp"
+msgstr "ยืนยันการลงทะเบียนจากระบบ SmsBaseApp"
+
+#: Users/views.py:50 Users/views.py:93
+msgid "Register successfully."
+msgstr "ลงทะเบียนสำเร็จ"
+
+#: Users/views.py:122
+msgid "Confirm email successfully."
+msgstr "ยืนยันการลงทะเบียนสำเร็จ"
+
+#: Users/views.py:123
+msgid "Enjoy using our system."
+msgstr "ขอให้สนุกกับการใช้ระบบของเรา"
+
+#: Users/views.py:134
+msgid "Confirm email failed."
+msgstr "ยืนยันการลงทะเบียนล้มเหลว"
+
+#: Users/views.py:135 Users/views.py:260
+msgid "Please contact officer."
+msgstr "กรุณาติดต่อเจ้าหน้าที่"
+
+#: Users/views.py:195
+msgid "Confirm password change from SmsBaseApp"
+msgstr "ยืนยันการเปลี่ยนรหัสผ่านจากระบบ SmsBaseApp"
+
+#: Users/views.py:205
+msgid "Request a Password Change"
+msgstr "คำร้องการเปลี่ยนรหัส"
+
+#: Users/views.py:206
+msgid "Please confirm the password at your email"
+msgstr "โปรดยืนยันการเปลี่ยนรหัสที่อีเมลของท่าน"
+
+#: Users/views.py:246 Users/views.py:259 Users/views.py:299
+#: Users/views.py:323 Users/views.py:367
+msgid "Reset password failed."
+msgstr "การตั้งค่ารหัสผ่านใหม่ผิดพลาด"
+
+#: Users/views.py:247
+msgid "Reset Passwords request expired. Please login again"
+msgstr "คำร้องรีเซตรหัสผ่านหมดอายุ กรุณายื่นคำร้องใหม่อีกครั้ง"
+
+#: Users/views.py:286 Users/views.py:355
+msgid "Reset password successfully"
+msgstr "การตั้งค่ารหัสผ่านใหม่สำเร็จ"
+
+#: Users/views.py:287
+msgid "New password is saved successfully"
+msgstr "รหัสผ่านผู้ใช้ใหม่ถูกบันทึกในระบบเรียบร้อย"
+
+#: Users/views.py:300 Users/views.py:324
+msgid "Please a new request."
+msgstr "กรุณาส่งคำร้องใหม่อีกครั้ง"
+
+#: Users/views.py:356
+msgid "New password is saved successfully. Please login again"
+msgstr "รหัสผ่านผู้ใช้ใหม่ถูกบันทึกในระบบเรียบร้อย กรุณาลงชื่อเข้าระบบอีกครั้ง"
+
+#: Users/views.py:368
+msgid "The old password incorrect. Please login again"
+msgstr "กำหนดค่ารหัสผ่านเดิมไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง"
+
+#: Project/forms.py:18 Project/templates/all_project_page.html:20
+msgid "Project Name"
+msgstr "ชื่อโครงงาน"
+
+#: Project/forms.py:19 Project/templates/all_project_page.html:21
+msgid "Project Title"
+msgstr "หัวข้อโครงงาน"
+
+#: Project/forms.py:20 Project/templates/all_project_page.html:22
+msgid "Project Detail"
+msgstr "รายละเอียดโครงงาน"
+
+#: Project/forms.py:35
+msgid "only me"
+msgstr "เฉพาะฉัน"
+
+#: Project/forms.py:36
+msgid "other user"
+msgstr "ผู้ใช้รายอื่น"
+
+#: Project/forms.py:37
+msgid "etc"
+msgstr "อื่นๆ"
+
+#: Project/templates/all_project_page.html:19
+msgid "Project ID"
+msgstr "รหัสโครงงาน"
+
+#: Project/templates/all_project_page.html:23
+msgid "Project Directory"
+msgstr "ไดเรกทอรีของโครงงาน"
+
+#: Project/templates/new_project_page.html:12
+msgid "Project Information"
+msgstr "ข้อมูลโครงงาน"
+
+#: Project/templates/new_project_page.html:14
+msgid "Project info."
+msgstr "ข้อมูลของโครงงาน"
+
+#: Project/templates/new_project_page.html:27
+msgid "Other Information"
+msgstr "ข้อมูลอื่นๆ"
+
+#: Project/templates/new_project_page.html:32
+msgid "Select permission :"
+msgstr "เลือกสิทธิ์การใช้งาน"
+
+#: Project/templates/new_project_page.html:40
+msgid "Select samples"
+msgstr "เลือกไฟล์"
+
+#: Project/templates/new_project_page.html:42
+msgid "Select sample path:"
+msgstr "เลือกที่เก็บไฟล์"
+
+#: Project/templates/new_project_page.html:52
+msgid "Select image:"
+msgstr "เลือกรูปภาพ"
+
+#: Project/templates/new_project_page.html:57
+msgid "Create Project"
+msgstr "สร้างโครงงาน"
+
+#: Project/templates/share_project_page.html:15
+msgid "Select project"
+msgstr "เลือกโครงงาน"
+
+#: Project/templates/share_project_page.html:27
+#: Project/templates/share_project_page.html:61
+#: Project/templates/share_project_page.html:87
+msgid "Share to"
+msgstr "แชร์ให้กับ"
+
+#: Project/templates/share_project_page.html:34
+msgid "User"
+msgstr "ผู้ใช้"
+
+#: Project/templates/share_project_page.html:45
+msgid "Add"
+msgstr "เพิ่ม"
+
+#: Project/templates/share_project_page.html:55
+msgid "Owner share"
+msgstr "เจ้าของ"
+
+#: Project/templates/share_project_page.html:59
+#: Project/templates/share_project_page.html:85
+msgid "Owner name"
+msgstr "ชื่อเจ้าของ"
+
+#: Project/templates/share_project_page.html:60
+#: Project/templates/share_project_page.html:86
+msgid "Project name"
+msgstr "ชื่อโครงงาน"
+
+#: Project/templates/share_project_page.html:62
+#: Project/templates/share_project_page.html:88
+msgid "Permission"
+msgstr "สิทธิ์การใช้งาน"
+
+#: Project/templates/share_project_page.html:63
+msgid "action"
+msgstr "การกระทำ**"
+
+#: Project/templates/share_project_page.html:80
+msgid "Share with me"
+msgstr "แชร์กับฉัน"
+
+#: Sample/templates/all_sample_page.html:5
+msgid "All Sample"
+msgstr "ไฟล์ทั้งหมด"
