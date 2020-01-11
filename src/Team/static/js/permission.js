@@ -13,7 +13,8 @@ const addPermission = e => {
     };
     fetchDataPost("Team/add_permission/", csrf_token, data)
       .then(dataCB => {
-        const { data, message } = dataCB;
+        const { message } = dataCB;
+        initElementPermissionList();
         alert(message);
       })
       .catch(errCb => console.log({ errCb }));
@@ -23,7 +24,8 @@ const addPermission = e => {
 };
 
 function createElePermissionsList(data) {
-  if (data.length > 0) {
+  console.log({ data });
+  if (data.length) {
     for (let i = 0; i < data.length; i++) {
       const { name_permission } = data[i];
       const createBoxList = createElementFun("div", "box-list");
@@ -42,8 +44,7 @@ function createElePermissionsList(data) {
     }
   } else {
     const createDiv = createElementFun("div", "for-empty-box");
-    const createH5 = createElementFun("h5", "text-center", "Empty Attachment.");
-    createH5.appendChild(createTextNode);
+    const createH5 = createElementFun("h5", "text-center", "Empty Permission.");
     createDiv.appendChild(createH5);
     createBigBoxList.appendChild(createDiv);
   }

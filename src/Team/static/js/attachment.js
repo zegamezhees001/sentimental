@@ -69,10 +69,14 @@ function initFetchDataInAddAttachmentPage() {
 function createElementAttachmentList(data) {
   if (data.length) {
     for (let i = 0; i < data.length; i++) {
-      const { name_attachment, id_attachment } = data[i];
+      const { name_attachment, id_attachment, name_permission } = data[i];
       //createElementFun is a function for create element path file in 'handle_ele_func.js'.
       const createH5 = createElementFun("h5", "", name_attachment);
-      const createSmall = createElementFun("small", "", name_attachment);
+      const createSmall = createElementFun(
+        "small",
+        "",
+        `permission: ${name_permission}`
+      );
       const createInformationMain = createElementFun(
         "div",
         "information-box",
@@ -96,7 +100,6 @@ function createElementAttachmentList(data) {
   } else {
     const createDiv = createElementFun("div", "for-empty-box");
     const createH5 = createElementFun("h5", "text-center", "Empty Attachment.");
-    createH5.appendChild(createTextNode);
     createDiv.appendChild(createH5);
     bigBoxList.appendChild(createDiv);
   }

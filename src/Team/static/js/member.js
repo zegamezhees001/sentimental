@@ -1,13 +1,12 @@
-const id_att = document.getElementById("id_attachment");
-const id_user = document.getElementById("id_user");
-const add_btn_team = document.getElementById("add_btn_team");
 window.onload = () => {
+  const add_btn_team = document.getElementById("add_btn_team");
   add_btn_team.disabled = true;
   initLoadAttachmentDatas();
   initLoadUserDatas();
 };
 
 function initLoadAttachmentDatas() {
+  const id_att = document.getElementById("id_attachment");
   const createOption = createElementFun("option", "", "Null Attachment");
   createOption.value = "null";
   checkSelectNotNull();
@@ -32,14 +31,16 @@ function initLoadAttachmentDatas() {
     });
 }
 function initLoadUserDatas() {
+  const id_user = document.getElementById("id_user");
   const createOption = createElementFun("option", "", "Null User");
   createOption.value = "null";
   checkSelectNotNull();
   id_user.appendChild(createOption);
-  // fetch(`${HOSTMAIN}/`)
 }
 
 function checkSelectNotNull() {
+  const add_btn_team = document.getElementById("add_btn_team");
+
   if (id_att.value != "null") add_btn_team.disabled = false;
   else add_btn_team.disabled = true;
   if (id_user.value != "null") add_btn_team.disabled = false;

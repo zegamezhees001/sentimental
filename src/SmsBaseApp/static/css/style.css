@@ -75,8 +75,43 @@ body,
 }
 
 .div_bk {
-  padding: 10px;
+  padding: 20px;
   border-radius: 6px;
   background: white;
   margin: auto;
+}
+.md-left-and-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-sizing: border-box;
+  grid-gap: 1em;
+}
+.success-message,
+.err-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+.err-message {
+  padding: 10px;
+  color: white;
+  background: red;
+}
+.success-message {
+  padding: 10px;
+  background: rgb(122, 238, 27);
+}
+
+.success-message > i,
+.err-message > i {
+  margin-left: 30px;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.success-message > i:hover,
+.err-message > i:hover {
+  color: rgba(0, 0, 0, 1);
 }

@@ -8,8 +8,8 @@
 function createElementFun(eleName, className, textInput, funcOnclick) {
   const createElement = document.createElement(eleName);
   if (textInput) {
-    const createTextNode = document.createTextNode(textInput);
-    createElement.appendChild(createTextNode);
+    const ctn = document.createTextNode(textInput);
+    createElement.appendChild(ctn);
   }
   if (className) createElement.className = className;
   if (funcOnclick) createElement.onclick = funcOnclick;
@@ -24,4 +24,12 @@ function removeChild(element) {
   while (element.firstChild) {
     element.firstChild.remove();
   }
+}
+
+function message_show_success(message, messageEle, classShow) {
+  messageEle.style.display = "block";
+  messageEle.innerHTML = message;
+  messageEle.className = classShow;
+  const createX = createElementFun("i", "far fa-window-close");
+  messageEle.appendChild(createX);
 }

@@ -21,12 +21,10 @@ class Attachment(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to="images/", default="media/photos/image.jpg")
-    id_attachment = models.ForeignKey(Attachment, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True)
-    tel = models.CharField(max_length=15, blank=True)
-    employeeID = models.CharField(max_length=15, blank=True)
+    bio = models.TextField(max_length=500, null=True , blank=True)
+    tel = models.CharField(max_length=15, null=True , blank=True)
     birth_date = models.DateField(null=True, blank=True)
-
+    id_attachment = models.ForeignKey(Attachment, null=True , on_delete=models.CASCADE)
 
 class UserSession(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
