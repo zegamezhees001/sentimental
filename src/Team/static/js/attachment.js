@@ -1,10 +1,25 @@
 document.getElementById("btn_add").disabled = true;
 document.getElementById("message_name").style.display = "none";
 const bigBoxList = document.getElementById("big-box-list");
+const _csrf_token = csrf_token; // pass from html file
 initFetchDataInAddAttachmentPage();
 const deleteAttachment = id_a => {
   if (confirm(`Are you sure you want to delete id ${id_a} ?`)) {
-    //  post delete `${HOSTMAIN}/Team/delete_attachment/?id_attachment=`
+    const url = `${HOSTMAIN}/Team/delete_attachment/?id_attachment=${id_a}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": _csrf_token
+      }
+    })
+      .then(data => data.json())
+      .then(dataCb => {
+        const { message } = dataCb;
+        alert(message);
+        initFetchDataInAddAttachmentPage();
+      })
+      .catch(err => alert(`cannot delete this id becase server err. ${err}`));
   }
 };
 const createAttachment = e => {
@@ -41,51 +56,48 @@ const inputNameA = e => {
 };
 
 function initFetchDataInAddAttachmentPage() {
-  while (bigBoxList.firstChild) {
-    bigBoxList.removeChild(bigBoxList.firstChild);
-  }
+  removeChild(bigBoxList);
   fetch(`${HOSTMAIN}/Team/show_attachments/`)
     .then(data => data.json())
     .then(dataCB => {
       const { data, message, status } = dataCB;
-      if (data.length) {
-        for (let i = 0; i < data.length; i++) {
-          const createListBox = document.createElement("div");
-          createListBox.className = "box-list";
-          const createInformationMain = document.createElement("div");
-          createInformationMain.className = "information-box";
-          const createH5 = document.createElement("h5");
-          const textH5Node = document.createTextNode(data[i].name_attachment);
-          createH5.appendChild(textH5Node);
-          const createSmall = document.createElement("small");
-          const textSmall = document.createTextNode(data[i].name_permission);
-          createSmall.appendChild(textSmall);
-          createInformationMain.appendChild(createH5);
-          createInformationMain.appendChild(createSmall);
-          // --------------------------------------------
-          const createDiv = document.createElement("div");
-          const createBtn = document.createElement("button");
-          const createI = document.createElement("i");
-          createI.className = "far fa-trash-alt";
-          createBtn.className = "btn btn-danger";
-          createBtn.onclick = () => deleteAttachment(data[i].id_attachment);
-          createBtn.appendChild(createI);
-
-          createDiv.appendChild(createBtn);
-          createListBox.appendChild(createInformationMain);
-          createListBox.appendChild(createDiv);
-          bigBoxList.appendChild(createListBox);
-        }
-      } else {
-        const createDiv = document.createElement("div");
-        createDiv.className = "for-empty-box";
-        const createH5 = document.createElement("h5");
-        createH5.className = "text-center";
-        const createTextNode = document.createTextNode("Empty Attachment.");
-        createH5.appendChild(createTextNode);
-        createDiv.appendChild(createH5);
-        bigBoxList.appendChild(createDiv);
-      }
+      createElementAttachmentList(data);
     })
     .catch(err => console.log(err));
+}
+
+function createElementAttachmentList(data) {
+  if (data.length) {
+    for (let i = 0; i < data.length; i++) {
+      const { name_attachment, id_attachment } = data[i];
+      //createElementFun is a function for create element path file in 'handle_ele_func.js'.
+      const createH5 = createElementFun("h5", "", name_attachment);
+      const createSmall = createElementFun("small", "", name_attachment);
+      const createInformationMain = createElementFun(
+        "div",
+        "information-box",
+        ""
+      );
+      createInformationMain.appendChild(createH5);
+      createInformationMain.appendChild(createSmall);
+      // --------------------------------------------
+      const createDiv = createElementFun("div");
+      const createBtn = createElementFun("button", "btn btn-danger", "", () =>
+        deleteAttachment(id_attachment)
+      );
+      const createI = createElementFun("i", "far fa-trash-alt");
+      createBtn.appendChild(createI);
+      createDiv.appendChild(createBtn);
+      const createBoxList = createElementFun("div", "box-list", "");
+      createBoxList.appendChild(createInformationMain);
+      createBoxList.appendChild(createDiv);
+      bigBoxList.appendChild(createBoxList);
+    }
+  } else {
+    const createDiv = createElementFun("div", "for-empty-box");
+    const createH5 = createElementFun("h5", "text-center", "Empty Attachment.");
+    createH5.appendChild(createTextNode);
+    createDiv.appendChild(createH5);
+    bigBoxList.appendChild(createDiv);
+  }
 }

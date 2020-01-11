@@ -4,14 +4,34 @@
 
 <!--  -->
 {% block content %}
-<h3 class="container">
-    {{message}}
-  <h3 >This team is {{ team.name_team }}</h3>
-    <h5> created at {{ team.create_date }}</h5> </h5>
+<div class="container">
+  <!-- {{message}} -->
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <h3>This team is {{ team.name_team }}</h3>
+      <h5>created at {{ team.create_date }}</h5>
+    </div>
 
-    <form id="form-add-roles">
-      
+    <form class="col-12 col-md-7" style="margin:auto" id="form-add-roles">
+      <div class="md-form">
+        <label for="user">Select user:</label>
+        <select class="form-control" id="id_user"></select>
+      </div>
+      <div class="md-form mt-3">
+        <label for="Attachment">Select Attachment:</label>
+        <select class="form-control" id="id_attachment"></select>
+      </div>
+      <div class="md-form mt-3">
+        <button
+          id="add_btn_team"
+          onclick="addToTeam(event)"
+          class="btn btn-block btn-primary"
+        >
+          Add To Team
+        </button>
+      </div>
     </form>
+  </div>
 </div>
 <!--  -->
 {% endblock content %}
@@ -20,6 +40,6 @@
 <script>
   const csrf_token = "{{ csrf_token }}";
 </script>
-<script src="{% static 'js/add-member.js' %}"></script>
+<script src="{% static 'js/member.js' %}"></script>
 
 {% endblock script %}

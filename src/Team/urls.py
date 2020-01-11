@@ -23,9 +23,17 @@ urlpatterns = [
     path("add_attachment_page/" , add_attachment_page, name="add_attachment_page"),
     path("add_attachment/" , add_attachment, name="add_attachment"),
     path("show_attachments/" , show_attachments , name="show_attachments"),
+    path("delete_attachment/" , delete_attachment , name="delete_attachment"),
 
     path("add_permission_page/" , add_permission_page, name="add_permission_page"),
     path("add_permission/" , add_permission, name="add_permission"),
+    path("show_permissions/" , show_permissions, name="show_permissions")
+    
+    
+
+
+
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

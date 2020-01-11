@@ -108,3 +108,19 @@ def show_attachments(req):
 
 # end show ------------------------
 
+
+
+# delete -------------------------------
+def delete_attachment(req):
+    try:
+        if req.method == "DELETE" and req.GET.get("id_attachment"):
+            id_attachment = req.GET.get("id_attachment")
+            Attachment.objects.get(id_attachment=id_attachment).delete()
+            return responseData(message_handle("delete data attachment id is {} success".format(id_attachment) , []) , 200)
+        else:
+            return responseData(message_handle("id_attachment is not found." , []) , 404)
+    except Exception as e:
+        return responseData(message_handle("\n err show: {}".format(e), []), 500)
+        
+
+# end delete -------------------------------

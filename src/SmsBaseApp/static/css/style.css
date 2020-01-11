@@ -73,3 +73,10 @@ body,
 .box-list > div:last-child {
   text-align: center;
 }
+
+.div_bk {
+  padding: 10px;
+  border-radius: 6px;
+  background: white;
+  margin: auto;
+}

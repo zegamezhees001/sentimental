@@ -23,29 +23,31 @@ def create_team(req):
     return render(req, "create_team.html")
 
 
-def show_team_page(req):
-    return render(req, "show_team.html")
 
-
-def create_team_object(tData):
-    return {
-        "name_team": tData.name_team,
-        "create_date": tData.create_date.strftime("%d/%m/%YT%H:%M:%S"),
-    }
+def zip_team_object(tData):
+    zipDatas = []
+    if len(tData) > 0:
+        for d in tData:
+            object_ = {
+                "id_team": d.id_team,
+                "name_team": d.name_team,
+                "create_date": d.create_date.strftime("%d/%m/%YT%H:%M:%S")
+            }
+            zipDatas.append(object_)
+    return zipDatas
 
 
 def show_team_all(req):
     try:
         datas = TeamModel.objects.all()
-        datas_to_show = []
-        if len(datas) > 0:
-            for d in datas:
-                object_ = create_team_object(d)
-                datas_to_show.append(object_)
+        datas_to_show = zip_team_object(datas)
         goBackData = message_handle("load data success", datas_to_show, 200)
-        print(goBackData)
         return responseData(goBackData)
     except:
         return responseData(message_handle("something worng", [], 500))
+
+
+def show_team_page(req):
+    return render(req, "show_team.html")
 
 
