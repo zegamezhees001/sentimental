@@ -3,13 +3,7 @@ import json
 from .models import TeamModel
 from BaseSettings.respone_data import responseData, message_handle
 from django.contrib.auth.decorators import user_passes_test
-
-# Create your views here.
-def check_user_is_admin(user):
-    try:
-        return user.is_superuser
-    except Exception as e:
-        return True
+from BaseSettings.permissions import check_user_is_admin
 
 def zip_team_object(tData):
     zipDatas = []

@@ -4,7 +4,7 @@ import json
 from .presenters.user_model import UserModel
 from django.contrib.auth.decorators import user_passes_test
 from .models import Profile
-
+from BaseSettings.permissions import check_user_is_admin
 def zip_data_profiles(profiles):
     zip_datas = []
     if len(profiles):
@@ -20,7 +20,6 @@ def zip_data_profiles(profiles):
                 "bio" : profile.bio,
                 "tel": profile.tel,
                 "birth_date": bd,
-                "name_attachment": profile.id_attachment.name_attachment,
                 "first_name": profile.user.first_name,
                 "last_name": profile.user.last_name,
                 "employeeID": profile.user.employeeID ,
@@ -30,12 +29,7 @@ def zip_data_profiles(profiles):
             }
             zip_datas.append(data)
     return zip_datas
-# Create your views here.
-def check_user_is_admin(user):
-    try:
-        return user.is_superuser
-    except Exception as e:
-        return True
+
 
 @user_passes_test(check_user_is_admin, login_url="Users:login")
 def admin_create_user_page(req):

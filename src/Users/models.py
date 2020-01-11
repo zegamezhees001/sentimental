@@ -24,7 +24,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, null=True , blank=True)
     tel = models.CharField(max_length=15, null=True , blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    id_attachment = models.ForeignKey(Attachment, null=True , on_delete=models.CASCADE)
+
 
 class UserSession(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

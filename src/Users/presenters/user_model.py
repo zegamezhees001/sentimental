@@ -8,7 +8,6 @@ class UserModel:
         self.last_name_user =  dataUser['last_name_user']
         self.username =  dataUser['username']
         self.password =  dataUser['password']
-        self.id_attachment =  dataUser['id_attachment']
         self.email =  dataUser['email']
         self.tel =  dataUser['tel']
     
@@ -19,7 +18,6 @@ class UserModel:
             "last_name_user": self.last_name_user,
             "username": self.username,
             "password": self.password,
-            "id_attachment": self.id_attachment,
             "tel": self.tel,
             "email" : self.email
 
@@ -37,7 +35,7 @@ class UserModel:
             user.set_password(self.password)
             user.save()
             userCreated = self._find_user_by_email(self.email)
-            createProfile = Profile(id_attachment=Attachment.objects.get(id_attachment=self.id_attachment) , user=userCreated , tel=self.tel)
+            createProfile = Profile(user=userCreated , tel=self.tel)
             createProfile.save()
             return "create new user successfully."
         except Exception as e:

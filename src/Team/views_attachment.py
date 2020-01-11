@@ -4,14 +4,10 @@ from .models import TeamModel
 from BaseSettings.respone_data import responseData, message_handle
 from Users.models import Permission, Attachment
 from django.contrib.auth.decorators import user_passes_test
+from BaseSettings.permissions import check_user_is_admin
 
 
 # extention --------------------------------------------
-def check_user_is_admin(user):
-    try:
-        return user.is_superuser
-    except Exception as e:
-        return True
 
 # objectModel is a Model ex. Permission or Attachment to get all objects.
 # this function will return data each of model data.

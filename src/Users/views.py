@@ -92,10 +92,8 @@ def staff_is(staffId):
 def login(request):
     if staff_is(request.user.is_staff):
         g = staff_is(request.user.is_staff)
-
         print(g)
-
-        if g == "Admin":
+        if str(g) == "Admin":
             return redirect("Team:create_team")
     user_session = ''
     args = {}

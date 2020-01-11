@@ -1,34 +1,3 @@
-window.onload = () => {
-  initLoadAttachmentDatasForCreateUser();
-};
-function initLoadAttachmentDatasForCreateUser() {
-  const err = "ff";
-  message_show_success(err, "success-message");
-
-  const id_att = document.getElementById("id_attachment");
-  const createOption = createElementFun("option", "", "Null Attachment");
-  createOption.value = "null";
-
-  id_att.appendChild(createOption);
-  fetch(`${HOSTMAIN}/Team/show_attachments/`)
-    .then(d => d.json())
-    .then(dataCB => {
-      const { data } = dataCB;
-      if (data.length) {
-        removeChild(id_att);
-        data.forEach(dAtt => {
-          const { name_attachment, id_attachment } = dAtt;
-          const createOption = createElementFun("option", "", name_attachment);
-          createOption.value = id_attachment;
-          id_att.appendChild(createOption);
-        });
-      }
-    })
-    .catch(err => {
-      alert(err);
-    });
-}
-
 function dc_id(name) {
   return document.getElementById(name);
 }
@@ -39,7 +8,7 @@ function checkBtnCanClick() {
   const last_name_user = dc_id("last_name_user");
   const username = dc_id("username");
   const password = dc_id("password");
-  const id_attachment = dc_id("id_attachment");
+
   const tel = dc_id("tel");
   const email = dc_id("email");
   if (
@@ -48,7 +17,6 @@ function checkBtnCanClick() {
     last_name_user.value &&
     username.value &&
     password.value &&
-    id_attachment.value &&
     tel.value &&
     email.value
   ) {
@@ -60,13 +28,11 @@ function checkBtnCanClick() {
 
 const whenUserClick = event => {
   event.preventDefault();
-  const message_create_user = dc_id("message-create-user");
   const id_employee = dc_id("id_employee");
   const name_user = dc_id("name_user");
   const last_name_user = dc_id("last_name_user");
   const username = dc_id("username");
   const password = dc_id("password");
-  const id_attachment = dc_id("id_attachment");
   const tel = dc_id("tel");
   const zipDatas = {
     id_employee: id_employee.value,
@@ -74,7 +40,6 @@ const whenUserClick = event => {
     last_name_user: last_name_user.value,
     username: username.value,
     password: password.value,
-    id_attachment: id_attachment.value,
     tel: tel.value,
     email: email.value
   };
