@@ -23,10 +23,15 @@
         class="form-control"
         value="{{ request.GET.next }}"
       />
-      {% endif %} {{form.username}} {{ form.password }} {% if
-      form.non_field_errors %} {% for error in form.non_field_errors %}
+      {% endif %} {{form.username}} {{ form.password }}
+      <!--  -->
+      {% if form.non_field_errors %}
+      <!--  -->
+      {% for error in form.non_field_errors %}
       <div class="ui red message">{{ error }}</div>
-      {% endfor %} {% endif %}
+      {% endfor %}
+      <!--  -->
+      {% endif %}
 
       <!--<div class="d-flex justify-content-around">-->
       <!--<div>-->

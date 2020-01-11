@@ -3,9 +3,15 @@ import json
 from .models import TeamModel
 from BaseSettings.respone_data import responseData, message_handle
 from Users.models import Permission, Attachment
+from django.contrib.auth.decorators import user_passes_test
 
 
 # extention --------------------------------------------
+def check_user_is_admin(user):
+    try:
+        return user.is_superuser
+    except Exception as e:
+        return True
 
 # objectModel is a Model ex. Permission or Attachment to get all objects.
 # this function will return data each of model data.
@@ -41,6 +47,7 @@ def handleArraysObjectAttachmentToArraysJson(attachmentData):
 
 
 # add -----––-----------------
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_attachment_page(req):
     try:
         zipDatas = []
@@ -67,7 +74,7 @@ def add_attachment_page(req):
     except:
         return render(req, "add_attachment.html")
 
-
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_attachment(req):
     if req.method == "POST":
         attachmentData = json.loads(req.body)
@@ -96,6 +103,7 @@ def add_attachment(req):
 # end add ------
 
 # show ---------------------------------------
+@user_passes_test(check_user_is_admin)
 def show_attachments(req):
     try:
         attachmentData = handleDataObjectAndReturnData(Attachment)

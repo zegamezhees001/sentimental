@@ -2,8 +2,16 @@ from django.shortcuts import render , redirect
 import json
 from .models import TeamModel
 from BaseSettings.respone_data import responseData, message_handle
+from django.contrib.auth.decorators import user_passes_test
 
 
+def check_user_is_admin(user):
+    try:
+        return user.is_superuser
+    except Exception as e:
+        return True
+
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_member_page(req):
     try:
         id_team = req.GET.get("id_team")
@@ -20,7 +28,7 @@ def add_member_page(req):
             {"message": "some thibg worng", "team": [], "stattus": 500},
         )
 
-
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_member(req):
     pass
     # try:

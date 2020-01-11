@@ -1,12 +1,9 @@
 window.onload = () => {
-  document.getElementById("btn_create_user").disabled = true;
-
   initLoadAttachmentDatasForCreateUser();
 };
 function initLoadAttachmentDatasForCreateUser() {
-  //   dc_id("message-create-user").style.display = "none";
   const err = "ff";
-  message_show_success(err, dc_id("message-create-user"), "success-message");
+  message_show_success(err, "success-message");
 
   const id_att = document.getElementById("id_attachment");
   const createOption = createElementFun("option", "", "Null Attachment");
@@ -84,12 +81,10 @@ const whenUserClick = event => {
   fetchDataPost("Users/admin_create_user/", csrf_token, zipDatas)
     .then(dataCB => {
       const { message } = dataCB;
-      message_show_success(message, message_create_user, "success-message");
+      message_show_success(message, "success-message");
       clear_input();
     })
-    .catch(err =>
-      message_show_success(err, message_create_user, "err-message")
-    );
+    .catch(err => message_show_success(err, "err-message"));
 };
 document
   .getElementById("btn_create_user")

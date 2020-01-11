@@ -26,7 +26,8 @@ function removeChild(element) {
   }
 }
 
-function message_show_success(message, messageEle, classShow) {
+function message_show_success(message, classShow) {
+  const messageEle = document.getElementById("message-create-user");
   messageEle.style.display = "block";
   messageEle.innerHTML = message;
   messageEle.className = classShow;

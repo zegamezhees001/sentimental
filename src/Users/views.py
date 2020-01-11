@@ -2,7 +2,6 @@ from django.contrib.auth import login as dj_login, logout as dj_logout
 from django.contrib.auth.signals import user_logged_in
 from .models import UserSession
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from .tokens import account_activation_token
 from django.template.loader import render_to_string
@@ -18,7 +17,7 @@ from datetime import datetime
 # import datetime
 from django.utils.translation import ugettext_lazy as _
 from .forms import SignUpForm,AdminSignUpForm, LoginForm, PasswordResetRequestForm, ResetChangePasswordForm, ChangePasswordForm
-from django.contrib.auth.models import Group 
+from django.contrib.auth.models import Group
 projectPath = '/Users'
 homePath = '/'
 superadminPath = '/SmsBackEnd/ibiobank_admin/'
@@ -80,8 +79,24 @@ def signup(request):
     return render(request, 'signup.html', args)
 
 
+def staff_is(staffId):
+    if staffId is not False:
+        try:
+            group = Group.objects.get(id=staffId)
+            return group.name
+        except Exception as e:
+            print(e)
+            return False
+    return False
 # Login function
 def login(request):
+    if staff_is(request.user.is_staff):
+        g = staff_is(request.user.is_staff)
+
+        print(g)
+
+        if g == "Admin":
+            return redirect("Team:create_team")
     user_session = ''
     args = {}
     form = LoginForm(request.POST or None)
@@ -91,7 +106,7 @@ def login(request):
         if 'loginBtn' in request.POST and form.is_valid():
 
             user = form.login(request)
-         
+
             request.session['user_id'] = user.id
             # check new user create storage folder
             check_create_storage(request)

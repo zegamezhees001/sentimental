@@ -34,10 +34,16 @@ const onCreateTeam = e => {
     };
     fetchDataPost("Team/create_team_save/", _csrf_token, data)
       .then(dataCb => {
-        nameTeam = "";
-        alert(dataCb.message);
+        document.getElementById("name_team").value = "";
+        message_show_success(dataCb.message, "success-message");
       })
-      .catch(err => alert(`something err: ${err}`));
+      .catch(err =>
+        message_show_success(
+          err,
+
+          "err-message"
+        )
+      );
   } else {
     alert("name team not found");
   }

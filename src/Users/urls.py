@@ -15,6 +15,7 @@ urlpatterns = [
     path('status_message/', status_message, name='status_message'),
     path('admin_create_user_page/', admin_create_user_page, name='admin_create_user_page'),
     path('admin_create_user/', create_new_user, name='create_new_user'),
+    path('user_all/', user_all, name='user_all'),
 
     re_path(r'^user/validate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',activate_account, name='activate_account'),
     re_path(r'^user/reset/password/request/$', password_reset_request,name='password_reset_request'),

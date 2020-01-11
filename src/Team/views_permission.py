@@ -3,6 +3,15 @@ import json
 from .models import TeamModel
 from BaseSettings.respone_data import responseData, message_handle
 from Users.models import Permission 
+from django.contrib.auth.decorators import user_passes_test
+
+def check_user_is_admin(user):
+    try:
+        return user.is_superuser
+    except Exception as e:
+        return True
+
+
 def permissionObjectToJsonFunc(permissionData):
     zipDatas = []
     if len(permissionData) > 0:
@@ -14,9 +23,11 @@ def permissionObjectToJsonFunc(permissionData):
             zipDatas.append(zipData)
     return zipDatas
 
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_permission_page(req):
     return render(req , "add_permission.html")
-
+    
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_permission(req):
     try:
         permissionData = json.loads(req.body)
@@ -28,7 +39,8 @@ def add_permission(req):
 
     except :
         return responseData(message_handle("permission is not saved." , [] , 500))
-    
+
+@user_passes_test(check_user_is_admin, login_url="Users:login")
 def show_permissions(req):
     try:
         permissions = Permission.objects.all()

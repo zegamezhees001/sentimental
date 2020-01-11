@@ -108,6 +108,8 @@ class LoginForm(forms.Form):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
+        print("clean {}".format(user))
+
         if user is not None:
             if not user.is_active:
                 raise forms.ValidationError(_("Please confirm your email."))

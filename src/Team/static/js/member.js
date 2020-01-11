@@ -31,16 +31,52 @@ function initLoadAttachmentDatas() {
     });
 }
 function initLoadUserDatas() {
-  const id_user = document.getElementById("id_user");
+  const id_user_e = document.getElementById("id_user");
   const createOption = createElementFun("option", "", "Null User");
   createOption.value = "null";
   checkSelectNotNull();
   id_user.appendChild(createOption);
+  fetch(`${HOSTMAIN}/Users/user_all/`)
+    .then(d => d.json())
+    .then(dataCB => {
+      const { data } = dataCB;
+      if (data.length) {
+        removeChild(id_user);
+        checkSelectNotNull();
+        data.forEach(dUser => {
+          console.log({ dUser });
+          const {
+            avatar,
+            bio,
+            tel,
+            birth_date,
+            name_attachment,
+            first_name,
+            last_name,
+            employeeID,
+            is_staff,
+            is_active,
+            id_user
+          } = dUser;
+          const createOption = createElementFun(
+            "option",
+            "",
+            `name: ${first_name} ${last_name}\n status: ${name_attachment} \n employeeID: ${employeeID}`
+          );
+          createOption.value = id_user;
+          id_user_e.appendChild(createOption);
+        });
+      }
+    })
+    .catch(err => {
+      alert(err);
+    });
 }
 
 function checkSelectNotNull() {
   const add_btn_team = document.getElementById("add_btn_team");
-
+  const id_att = document.getElementById("id_attachment");
+  const id_user = document.getElementById("id_user");
   if (id_att.value != "null") add_btn_team.disabled = false;
   else add_btn_team.disabled = true;
   if (id_user.value != "null") add_btn_team.disabled = false;

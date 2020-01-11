@@ -159,36 +159,10 @@
         <!-- Animated -->
         <div class="animated fadeIn">
           <!-- Breadcrumb bar -->
-          <div class="bc-icons-2 h6">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb blue-grey lighten-4">
-                <li class="breadcrumb-item">
-                  <a class="black-text" href="#">Home</a
-                  ><i
-                    class="fas fa-angle-double-right mx-2"
-                    aria-hidden="true"
-                  ></i>
-                </li>
-                <li class="breadcrumb-item">
-                  <a class="black-text" href="#">Libary</a
-                  ><i
-                    class="fas fa-angle-double-right mx-2"
-                    aria-hidden="true"
-                  ></i>
-                </li>
-                <li class="breadcrumb-item active">
-                  Data<i
-                    class="fas fa-angle-double-right mx-2"
-                    aria-hidden="true"
-                  ></i>
-                </li>
-                <li class="breadcrumb-item"></li>
-              </ol>
-            </nav>
-          </div>
-          <div class="text-right h6" style="font-size: 15px">
-            <b>Username :</b> {{ user.username }} <b>Session Started at : </b>{{
-            user.last_login }}
+
+          <div class="text-right h6 mb-5" style="font-size: 15px">
+            <b>Username :</b> {{ user.username }} <b>Session Started at : </b>
+            {{user.last_login }}
           </div>
           <!-- Strat Content -->
           {% block content %} {% endblock content %}
