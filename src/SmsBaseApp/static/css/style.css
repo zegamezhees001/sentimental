@@ -115,3 +115,32 @@ body,
 .err-message > i:hover {
   color: rgba(0, 0, 0, 1);
 }
+
+.cards-user {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2em;
+  box-sizing: border-box;
+}
+.card-user {
+  padding: 20px;
+  border-radius: 6px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.card-user:hover {
+  background: var(--primary);
+  color: white;
+  border: 0px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+}
+.card-active {
+  background: var(--primary);
+  color: white;
+  border: 0px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
