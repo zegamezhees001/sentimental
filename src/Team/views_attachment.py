@@ -5,7 +5,7 @@ from BaseSettings.respone_data import responseData, message_handle
 from Users.models import Permission, Attachment
 from django.contrib.auth.decorators import user_passes_test
 from BaseSettings.permissions import check_user_is_admin
-
+from .presenters.attachments.AttachmentModel import AttachmentModel , AttachmentExtention
 
 # extention --------------------------------------------
 
@@ -24,19 +24,6 @@ def handleDataObjectAndReturnData(objectModel):
         return e
 
 
-def handleArraysObjectAttachmentToArraysJson(attachmentData):
-    datas = []
-    if len(attachmentData) > 0:
-
-        for attachment in attachmentData:
-            data = {
-                "name_attachment": attachment.name_attachment,
-                "id_attachment" : attachment.id_attachment ,
-                "id_permission" : attachment.id_permission.id_permission,
-                "name_permission" : attachment.id_permission.name_permission
-            }
-            datas.append(data)
-    return datas
 
 
 # end extention --------------------------------------------
@@ -72,28 +59,17 @@ def add_attachment_page(req):
 
 @user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_attachment(req):
-    if req.method == "POST":
-        attachmentData = json.loads(req.body)
-        if attachmentData["name_attachment"] and attachmentData["id_permission"]:
-            try:
-                permissionD = Permission.objects.get(
-                    id_permission=int(attachmentData["id_permission"])
-                )
-                attachmentModel = Attachment(
-                    name_attachment=attachmentData["name_attachment"],
-                    id_permission=permissionD,
-                )
-                attachmentModel.save()
-                return responseData(message_handle("Save Attachment Success", [], 200))
-            except Exception as e:
-                print(e)
-                return responseData(
-                    message_handle("something worng : {}".format(e), [], 500)
-                )
-        else:
-            return responseData(message_handle("name_a and id_p are empty", [], 500))
-
-    return responseData(message_handle("This method not allow this url.", []) , 401)
+    try:
+        if req.method == "POST":
+            attachmentData = json.loads(req.body)
+            attModel = AttachmentModel(attachmentData)
+            getMessage = attModel.add_attachment()
+            messageF = message_handle("", getMessage['message'] )
+            return responseData(messageF , getMessage['status'])
+        messageF2 = message_handle("This method not allow this url.", []) 
+        return responseData(messageF2, 401)
+    except Exception as e:
+            return responseData(message_handle("err message: {}".format(e), [], 500) , 500)
 
 
 # end add ------
@@ -103,7 +79,7 @@ def add_attachment(req):
 def show_attachments(req):
     try:
         attachmentData = handleDataObjectAndReturnData(Attachment)
-        datas = handleArraysObjectAttachmentToArraysJson(attachmentData)
+        datas = AttachmentExtention.object_to_json(attachmentData)
         return responseData(message_handle("Attachment show success", datas, 200), 200)
     except Exception as e:
         print(e)
@@ -119,8 +95,9 @@ def delete_attachment(req):
     try:
         if req.method == "DELETE" and req.GET.get("id_attachment"):
             id_attachment = req.GET.get("id_attachment")
-            Attachment.objects.get(id_attachment=id_attachment).delete()
-            return responseData(message_handle("delete data attachment id is {} success".format(id_attachment) , []) , 200)
+            message_delete = AttachmentModel().delete_attachment(id_attachment)
+            messageF = message_handle(message_delete , []) 
+            return responseData(messageF, 200)
         else:
             return responseData(message_handle("id_attachment is not found." , []) , 404)
     except Exception as e:
