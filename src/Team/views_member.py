@@ -32,3 +32,12 @@ def add_member(req):
     # except :
     #     return responseData("something worng" , [] , 500)
 
+
+@user_passes_test(check_user_is_admin, login_url="Users:login")
+def show_member_list(req):
+    try:
+        pass
+
+    except:
+        return responseData(message_handle("err message:{}".format(e) , []) ,  500)
+

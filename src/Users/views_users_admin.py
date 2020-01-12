@@ -52,7 +52,7 @@ def create_new_user(req):
 def user_all(req):
     try:
         profiles = Profile.objects.all()
-        zip_datas = zip_data_profiles(profiles)
+        zip_datas = zip_data_profiles(pr ofiles)
         return responseData(message_handle("get data." , zip_datas) , 200)
     except Exception as e:
         print(e)
