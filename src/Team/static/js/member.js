@@ -1,4 +1,5 @@
 let choose_user = "";
+let atts = [];
 window.onload = () => {
   const add_btn_team = document.getElementById("add_btn_team");
   add_btn_team.disabled = true;
@@ -6,17 +7,19 @@ window.onload = () => {
   initLoadAttachmentDatas();
 };
 
-const handleLoadAttachmentDataInformationSuccesed = dataCB => {
+const handleLoadAttachmentDataInformationSuccesed = (dataCB, id_att) => {
   const { data } = dataCB;
   if (data.length) {
     removeChild(id_att);
     checkSelectNotNull();
     data.forEach(dAtt => {
       const { name_attachment, id_attachment } = dAtt;
+      atts[id_attachment] = { name_attachment, id_attachment };
       const createOption = createElementFun("option", "", name_attachment);
       createOption.value = id_attachment;
       id_att.appendChild(createOption);
     });
+    handleNameAttachment();
   }
 };
 
@@ -55,12 +58,13 @@ const handleLoadUserDataInformationSuccesed = dataCB => {
 
 function initLoadAttachmentDatas() {
   const createOption = createElementFun("option", "", "Null Attachment");
+  const id_att = document.getElementById("id_attachment");
   createOption.value = "null";
   checkSelectNotNull();
   id_att.appendChild(createOption);
   fetch(`${HOSTMAIN}/Team/show_attachments/`)
     .then(d => d.json())
-    .then(handleLoadAttachmentDataInformationSuccesed)
+    .then(d => handleLoadAttachmentDataInformationSuccesed(d, id_att))
     .catch(err => {
       console.log({ err });
     });
@@ -81,6 +85,7 @@ function initLoadUserDatas() {
 
 function checkSelectNotNull() {
   const add_btn_team = document.getElementById("add_btn_team");
+  const id_att = document.getElementById("id_attachment");
   if (choose_user) add_btn_team.disabled = false;
   else add_btn_team.disabled = true;
   if (id_att.value != "null") add_btn_team.disabled = false;
@@ -89,10 +94,9 @@ function checkSelectNotNull() {
 
 function show_update_data(name_user, employeeID, is_active) {
   checkSelectNotNull();
+  handleNameAttachment();
   document.getElementById("name_user").innerHTML = `Name user : ${name_user}`;
-  // document.getElementById(
-  //   "name_attachment"
-  // ).innerHTML = `Attachment: ${name_attachment}`;
+
   document.getElementById(
     "employeeID"
   ).innerHTML = `Employee ID: ${employeeID}`;
@@ -102,4 +106,12 @@ function show_update_data(name_user, employeeID, is_active) {
 function addToTeam(e) {
   e.preventDefault();
   console.log({ choose_user });
+}
+
+function handleNameAttachment() {
+  const id_att_v = document.getElementById("id_attachment").value;
+  const filter_att = atts.length ? atts[id_att_v].name_attachment : "Null";
+  document.getElementById(
+    "name_attachment"
+  ).innerHTML = `Attachment: ${filter_att}`;
 }

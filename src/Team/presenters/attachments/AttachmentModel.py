@@ -6,7 +6,6 @@ class AttachmentModel(AttachmentExtention):
     def __init__(self , attachmentData):
         self.attachmentData = attachmentData
 
-
     def add_attachment(self):
         if self.attachmentData["name_attachment"] and self.attachmentData["id_permission"]:
             try:

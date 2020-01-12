@@ -43,7 +43,6 @@ def show_team_all(req):
     try:
         datas = TeamModel.objects.all()
         datas_to_show = zip_team_object(datas)
-        # datas_to_show = []
         goBackData = message_handle("load data success", datas_to_show, 200)
         return responseData(goBackData)
     except Exception as e:
