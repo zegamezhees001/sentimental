@@ -6,4 +6,4 @@ const fetchDataPost = (url, _csrf_token, data) =>
       "X-CSRFToken": _csrf_token
     },
     body: JSON.stringify(data)
-  }).then(data => data.json());
+  }).then(data => ({ ...data.json(), status: data.status }));

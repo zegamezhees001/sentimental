@@ -5,7 +5,7 @@ from BaseSettings.respone_data import responseData, message_handle
 from Users.models import Permission, Attachment
 from django.contrib.auth.decorators import user_passes_test
 from BaseSettings.permissions import check_user_is_admin
-from .presenters.attachments.AttachmentModel import AttachmentModel , AttachmentExtention
+from .presenters.attachments.AttachmentModel import AttachmentModel, AttachmentExtention
 
 # extention --------------------------------------------
 
@@ -22,8 +22,6 @@ def handleDataObjectAndReturnData(objectModel):
         return zipDatas
     except Exception as e:
         return e
-
-
 
 
 # end extention --------------------------------------------
@@ -57,6 +55,7 @@ def add_attachment_page(req):
     except:
         return render(req, "add_attachment.html")
 
+
 @user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_attachment(req):
     try:
@@ -64,12 +63,12 @@ def add_attachment(req):
             attachmentData = json.loads(req.body)
             attModel = AttachmentModel(attachmentData)
             getMessage = attModel.add_attachment()
-            messageF = message_handle("", getMessage['message'] )
-            return responseData(messageF , getMessage['status'])
-        messageF2 = message_handle("This method not allow this url.", []) 
+            messageF = message_handle("", getMessage["message"])
+            return responseData(messageF, getMessage["status"])
+        messageF2 = message_handle("This method not allow this url.", [])
         return responseData(messageF2, 401)
     except Exception as e:
-            return responseData(message_handle("err message: {}".format(e), [], 500) , 500)
+        return responseData(message_handle("err message: {}".format(e), [], 500), 500)
 
 
 # end add ------
@@ -89,19 +88,19 @@ def show_attachments(req):
 # end show ------------------------
 
 
-
 # delete -------------------------------
 def delete_attachment(req):
     try:
         if req.method == "DELETE" and req.GET.get("id_attachment"):
             id_attachment = req.GET.get("id_attachment")
             message_delete = AttachmentModel().delete_attachment(id_attachment)
-            messageF = message_handle(message_delete , []) 
+            messageF = message_handle(message_delete, [])
             return responseData(messageF, 200)
         else:
-            return responseData(message_handle("id_attachment is not found." , []) , 404)
+            message_handle("id_attachment is not found.", [])
+            return responseData(message_, 404)
     except Exception as e:
         return responseData(message_handle("\n err show: {}".format(e), []), 500)
-        
+
 
 # end delete -------------------------------

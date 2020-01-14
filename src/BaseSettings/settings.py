@@ -76,7 +76,12 @@ SESSION_SAVE_EVERY_REQUEST = True
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["SmsBaseApp/templates", "Users/templates" , 'Team/templates' , "Equipment/templates"],
+        "DIRS": [
+            "SmsBaseApp/templates",
+            "Users/templates",
+            "Team/templates",
+            "Equipment/templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -101,7 +106,7 @@ DATABASES = {
         "NAME": "db_test",  # ชื่อฐานข้อมูล
         "ENGINE": "django.db.backends.mysql",  # <- window
         # 'ENGINE': 'mysql.connector.django', #  <- linux
-        "OPTIONS": {"sql_mode": "traditional"},
+        "OPTIONS": {"sql_mode": "traditional", "use_unicode": True},
         "USER": "root3",  # ชื่อผู้ใช้
         "PASSWORD": "",  # รหัสผ่าน
         "HOST": "127.0.0.1",  # โฮมฐานข้อมูล

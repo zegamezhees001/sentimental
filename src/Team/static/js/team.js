@@ -34,16 +34,17 @@ const onCreateTeam = e => {
     };
     fetchDataPost("Team/create_team_save/", _csrf_token, data)
       .then(dataCb => {
-        document.getElementById("name_team").value = "";
-        message_show_success(dataCb.message, "success-message");
+        // console.log({ dataCb });
+        if (status === 200) {
+          document.getElementById("name_team").value = "";
+          message_show_success(dataCb.message, "success-message");
+        } else {
+          message_show_success(dataCb.message, "err-message");
+        }
       })
-      .catch(err =>
-        message_show_success(
-          err,
-
-          "err-message"
-        )
-      );
+      .catch(err => {
+        console.log({ err });
+      });
   } else {
     alert("name team not found");
   }

@@ -26,6 +26,11 @@ function removeChild(element) {
   }
 }
 
+/**
+ *
+ * @param {*} message
+ * @param {*} classShow class 2 class err-message with success choose 1 to detect message err or success in style css.
+ */
 function message_show_success(message, classShow) {
   const messageEle = document.getElementById("message-create-user");
   messageEle.style.display = "block";

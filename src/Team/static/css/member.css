@@ -1,0 +1,28 @@
+.show-list-sub-member {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding-bottom: 10px;
+  transition: all 0.3s linear;
+}
+.show-list-member {
+  padding: 20px;
+}
+.show-list-big-sub-member {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 80% 20%;
+}
+.show-list-big-sub-member > div:last-child {
+  text-align: center;
+  margin: auto;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+.show-list-big-sub-member > div:last-child:hover {
+  color: red;
+}
+.show-list-sub-member > h5 {
+  margin-bottom: 10px;
+}
+.show-list-sub-member:hover {
+  border-bottom: 5px solid rgba(0, 0, 0, 1);
+}

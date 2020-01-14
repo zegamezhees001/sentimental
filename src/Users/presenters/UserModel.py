@@ -5,16 +5,14 @@ from .UserExtention import UserExtention
 
 class UserModel(UserExtention):
     def __init__(self, dataUser):
-        self.id_employee = dataUser["id_employee"]
-        self.first_name = dataUser["name_user"]
-        self.last_name_user = dataUser["last_name_user"]
-        self.username = dataUser["username"]
-        self.password = dataUser["password"]
-        self.email = dataUser["email"]
-        self.tel = dataUser["tel"]
-
-    def __init__(self):
-        pass
+        if dataUser is not "":
+            self.id_employee = dataUser["id_employee"]
+            self.first_name = dataUser["name_user"]
+            self.last_name_user = dataUser["last_name_user"]
+            self.username = dataUser["username"]
+            self.password = dataUser["password"]
+            self.email = dataUser["email"]
+            self.tel = dataUser["tel"]
 
     def _find_user_by_email(self, email):
         try:
