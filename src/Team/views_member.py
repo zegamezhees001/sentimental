@@ -1,10 +1,10 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render, redirect
 import json
 from .models import TeamModel
 from BaseSettings.respone_data import responseData, message_handle
 from django.contrib.auth.decorators import user_passes_test
 from BaseSettings.permissions import check_user_is_admin
-
+from .presenters.members import MemberModel
 
 
 @user_passes_test(check_user_is_admin, login_url="Users:login")
@@ -24,13 +24,14 @@ def add_member_page(req):
             {"message": "some thibg worng", "team": [], "stattus": 500},
         )
 
+
 @user_passes_test(check_user_is_admin, login_url="Users:login")
 def add_member(req):
-    pass
-    # try:
-    #     pass
-    # except :
-    #     return responseData("something worng" , [] , 500)
+    try:
+        member = req.body
+        MemberModel(member)
+    except:
+        return responseData(message_handle("something worng", []), 500)
 
 
 @user_passes_test(check_user_is_admin, login_url="Users:login")
@@ -39,5 +40,5 @@ def show_member_list(req):
         pass
 
     except:
-        return responseData(message_handle("err message:{}".format(e) , []) ,  500)
+        return responseData(message_handle("err message:{}".format(e), []), 500)
 
