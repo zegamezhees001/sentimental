@@ -1,0 +1,104 @@
+{%  load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title> Contact- Sentiment Analysis TH </title>
+
+  <!-- Bootstrap -->
+ <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/animate.css" %}">
+  <link href="{% static "css/animate.min.css" %}" rel="stylesheet">
+  <link href="{% static "css/style.css" %}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+</head>
+
+<body>
+!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <strong><img src="{% static 'images/image/logo.png' %}" height="40px"></strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+          aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item  {{ home_page }}">
+                    <a class="nav-link" href="{% url 'index' %}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ about_page }}">
+                    <a class="nav-link " href="{% url 'about' %}">About</a>
+                </li>
+
+                <li class="nav-item {{ contact_page }}">
+                    <a class="nav-link " href="{% url 'contact' %}">
+                        Contact
+                      </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="control-mr">
+      <div class="row">
+          <div class="container">
+              <div class="map control-mr">
+    <iframe src="https://maps.google.com/maps?q=suan%20sunandha%20rajabhat%20university&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+          </div>
+      </div>
+  </div>
+
+  <section class="contact-page">
+    <div class="container">
+      <div class="text-center">
+        <h2>Contact</h2>
+        <h5>ชื่อ ธนากร นามสกุล คำทำมา </h5>
+          <h6>นักศึกษา ชั้นปีที่ 4 สาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์และเทคโนโลยี มหาวิทยาลัยราชภัฎสวนสุนันทา </h6>
+        <h6><i class="fas fa-phone"></i> 086-279-2149</h6>
+          <h6><i class="fas fa-envelope"></i> thanakon_97@hotmail.com , s59122201053@ssru.ac.th</h6>
+      </div>
+    </div>
+    <!--/.container-->
+  </section>
+  <!--/#contact-page-->
+
+
+  <div class="sub-footer">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="{% static 'javascript/jquery.min.js' %}"></script>
+  <script src="{% static 'javascript/jquery-migrate.min.js' %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'javascript/jquery-migrate.min.js' %}"></script>
+  <script src="{% static ' javascript/wow.min.js' %}"></script>
+
+</body>
+
+</html>

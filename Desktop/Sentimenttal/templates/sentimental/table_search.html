@@ -1,0 +1,155 @@
+{%  load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Political Sentimental Analysis</title>
+
+  <!-- Bootstrap -->
+  <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+
+  <link rel="stylesheet" href="{% static "css/animate.css" %}">
+  <link href="{% static "css/animate.min.css" %}" rel="stylesheet">
+  <link href="{% static "css/style.css" %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+</head>
+
+<body>
+
+!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <strong><img src="{% static 'images/image/logo.png' %}" height="40px"></strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+          aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item  {{ home_page }}">
+                    <a class="nav-link" href="{% url 'index' %}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ about_page }}">
+                    <a class="nav-link " href="{% url 'about' %}">About</a>
+                </li>
+
+                <li class="nav-item {{ contact_page }}">
+                    <a class="nav-link " href="{% url 'contact' %}">
+                        Contact
+                      </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  <div class="mt-5">
+      <div class="py-5" style="background-color: #FBFBFB " >
+    <div class="container">
+
+        <div class="my-3">
+            <h4>เลือกพรรคการเมืองที่ต้องการค้นหาในตารางด้านล่างนี้ </h4>
+            <hr>
+        </div>
+
+        <table class="table table-bordered">
+  <thead class="thead-light text-center">
+    <tr>
+      <th scope="col">ลำดับ</th>
+      <th scope="col">โลโก้</th>
+      <th scope="col">ชื่อพรรค</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+
+    <tr>
+      <th scope="row">1</th>
+      <td><img src="{% static 'images/image/pthai.jpg' %}" width="50px" height="50px"></td>
+      <td>พรรคเพื่อไทย</td>
+      <td ><a href="../search/?z=เพื่อไทย"  class="btn btn-primary zoom">เลือก</a></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td><img src="{% static 'images/image/pracharat.jpg' %}" width="50px" height="50px"></td>
+      <td>พรรคพลังประชารัฐ</td>
+      <td ><a href="../search/?z=พลังประชารัฐ"  class="btn btn-primary zoom">เลือก</a></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td ><img src="{% static 'images/image/anakotmai.jpg' %}"
+      width="50px" height="50px" >
+      </td>
+      <td>พรรคอนาคตใหม่</td>
+        <td ><a href="../search/?z=อนาคตใหม่"  class="btn btn-primary zoom">เลือก</a></td>
+    </tr>
+   <tr>
+      <th scope="row">4</th>
+      <td><img src="{% static 'images/image/prachatipat.jpg' %}" width="50px" height="50px"></td>
+      <td>พรรคประชาธิปัตย์</td>
+      <td ><a href="../search/?z=ประชาธิปัตย์"  class="btn btn-primary">เลือก</a></td>
+    </tr>
+   <tr>
+      <th scope="row">5</th>
+      <td><img src="{% static 'images/image/settakrit.jpg' %}" width="50px" height="50px"></td>
+      <td>พรรคเศรษฐกิจใหม่</td>
+      <td ><a href="../search/?z=เศรษฐกิจใหม่"  class="btn btn-primary zoom">เลือก</a></td>
+    </tr>
+   <tr>
+      <th scope="row">6</th>
+      <td><img src="{% static 'images/image/phum.jpg' %}" width="50px" height="50px"></td>
+      <td>พรรคภูมิใจไทย</td>
+      <td ><a href="../search/?z=ภูมิใจไทย"  class="btn btn-primary zoom">เลือก</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+    </div>
+  </div>
+  </div>
+{#sub footer#}
+  <div class="sub-footer"style="margin-top:15px">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+        </div>
+        </div>
+      </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static 'javascript/jquery.min.js' %}"></script>
+  <script src="{% static 'javascript/jquery-migrate.min.js' %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'javascript/jquery-migrate.min.js' %}"></script>
+  <script src="{% static ' javascript/wow.min.js' %}"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <script>
+    wow = new WOW({}).init();
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+{%  load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Political Sentimental Analysis</title>
+
+  <!-- Bootstrap -->
+  <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="{% static "css/animate.css" %}">
+  <link href="{% static "css/animate.min.css" %}" rel="stylesheet">
+  <link href="{% static "css/style.css" %}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+<link href="https://fonts.googleapis.com/css?family=Kanit:100i,200&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+
+!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <strong><img src="{% static 'images/image/logo.png' %}" height="40px"></strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+          aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item  {{ home_page }}">
+                    <a class="nav-link" href="{% url 'index' %}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ about_page }}">
+                    <a class="nav-link " href="{% url 'about' %}">About</a>
+                </li>
+
+                <li class="nav-item {{ contact_page }}">
+                    <a class="nav-link " href="{% url 'contact' %}">
+                        Contact
+                      </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<div class="mt-5">
+    <div class="container mt-5">
+        <div class="card " style="margin-top: 50px;">
+            <div class="card-header">
+                <h3>แสดงผลข้อมูลการค้นหาของ พรรค{{ name }}</h3>
+            </div>
+            <div class="card-body" style="overflow-scrolling: auto">
+            <div>
+                <button class="btn btn-primary mb-3 float-right" onclick="window.location.href='{% url 'visual' %}?z={{ name }}'">
+                    <i class="fas fa-chart-pie"></i>  วิเคราะห์ข้อมูล</button>
+            </div>
+            <table class="table" id="example">
+  <thead>
+    <tr>
+      <th scope="col">อันดับ</th>
+      <th scope="col">ข้อมูล</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for data1 in data %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ data1 }}</td>
+
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{#sub footer#}
+  <div class="sub-footer"style="margin-top:15px">
+    <div class="container">
+      <div class="social-icon">
+        <div class="col-md-4">
+          <ul class="social-network">
+            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="twitter tool-tip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i></a></li>
+          </ul>
+        </div>
+        </div>
+        </div>
+      </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static 'javascript/jquery.min.js' %}"></script>
+  <script src="{% static 'javascript/jquery-migrate.min.js' %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'javascript/jquery-migrate.min.js' %}"></script>
+  <script src="{% static ' javascript/wow.min.js' %}"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+
+  <script>
+    wow = new WOW({}).init();
+  </script>
+
+<script>
+    $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+</body>
+
+</html>
