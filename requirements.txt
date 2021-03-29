@@ -143,7 +143,7 @@ pyexcel==0.5.15
 pyexcel-io==0.5.20
 pyexcel-webio==0.1.4
 pyflakes==2.0.0
-Pygments==2.3.1
+Pygments==2.7.4
 pylint==2.2.2
 pyodbc==4.0.25
 pyOpenSSL==18.0.0
